@@ -1,5 +1,3 @@
-import random as rand
-import queue
 
 def lru_page_replacement(reference, cap):
     p = []                                  #page queue
@@ -7,16 +5,16 @@ def lru_page_replacement(reference, cap):
     x = len(reference)
 
     for i in range(x):
-        if i not in p:
+        if reference[i] not in p:
             if (len(p) == cap):
-                p.pop(p[0])
-                p.append(i)
+                p.pop(0)
+                p.append(reference[i])
             else:
-                p.append(i)
+                p.append(reference[i])
             pfaults += 1
         else:
-            p.pop(i)
-            p.append(i)
+            p.remove(reference[i])
+            p.append(reference[i])
 
     return pfaults
 
