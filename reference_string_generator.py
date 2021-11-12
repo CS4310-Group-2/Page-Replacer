@@ -7,7 +7,6 @@ def ref_str_gen(current_locus_size = 2, transition_probability = 0.01, target_le
     v_mem_size = address_size - page_size
     motion_rate = 100
     resident_string = ''
-    page_fault = 0
     while(len(resident_string)<=target_len):
         for x in range(motion_rate):
             rand_int = rand.randint(location_start, location_start + current_locus_size)
@@ -21,5 +20,4 @@ def ref_str_gen(current_locus_size = 2, transition_probability = 0.01, target_le
     return resident_string
 
 
-new_str = ref_str_gen()
-print(new_str)
+
