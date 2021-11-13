@@ -12,6 +12,9 @@ def ref_str_gen(current_locus_size = 2, transition_probability = 0.01, target_le
             rand_int = rand.randint(location_start, location_start + current_locus_size)
             rand_real = rand.random()
             resident_string += repr(rand_int)
+            if(len(resident_string)>target_len):
+                return resident_string
+
             if rand_real < transition_probability:
                 location_start = rand.randint(0, v_mem_size - 1)
             else:
